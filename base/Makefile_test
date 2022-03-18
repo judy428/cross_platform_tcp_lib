@@ -1,0 +1,34 @@
+#########################################
+#
+# nio makefile
+#########################################
+
+include $(CROSS_PLATFORM_LIB_DIR)/Make.include
+
+# exe, staticlib, dynamiclib
+TYPE:= exe
+
+#output name
+TARGETNAME:= base_test
+
+# include  dir
+INCLUDES =
+
+# depends lib
+LIBDIRS = -lbase -ldl -lrt -lssl -lz -pthread
+
+#src dir
+SRCDIR:= ./test/
+ 
+#CCXXFLAGS= -DDEBUG -g
+ 
+#OFLAGS= -L$(TARGET_PATH_R)
+GLOBAL_CCXXFLAGS += -std=c++11 
+CCXXFLAGS = -fPIC
+#CFLAGS =
+#EXOBJS =
+#EXCLUDESRCS =
+ 
+#USEMYSELFALL = yes;
+ 
+include $(CROSS_PLATFORM_LIB_DIR)/Make.share

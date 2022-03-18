@@ -1,0 +1,248 @@
+##################################################################################################
+# 
+##################################################################################################
+ 
+# The source file types (headers excluded).
+# At least one type should be specified.
+# The valid suffixes are among of .c, .C, .cc, .cpp, .CPP, .c++, .cp, or .cxx.
+SRCEXTS:= .cpp
+ 
+# DONT Modify.
+ifndef SRCDIR
+SRCDIR:=./
+endif
+
+#define outflag 
+ifndef OUTFLAGS
+OUTFLAGS:= -o 
+endif
+ 
+# The include dirs.
+INCLUDES_ALL :=$(GLOBAL_INCLUDES)
+INCLUDES_ALL +=$(INCLUDES)
+
+# The lib dirs.
+LIB_DIR_ALL :=$(GLOBAL_LIBDIR)
+LIB_DIR_ALL +=$(LIBDIRS)
+
+# The flags used for c and c++.
+# Wall -Werror # show all warnings and take them as errors
+# -fvisibility=hidden # hide the so's export functions
+
+ifdef GLOBAL_CCXXFLAGS
+CCXXFLAGS_ALL:=$(GLOBAL_CCXXFLAGS)
+else
+CCXXFLAGS_ALL :=$(CCXXFLAGS)
+endif 
+# The compiling flags used only for C.
+# If it is a C++ program, no need to set these flags.
+# If it is a C and C++ merging program, set these flags for the C parts.
+CFLAGS_ALL   :=
+CFLAGS_ALL   +=$(CFLAGS)
+ 
+# The compiling flags used only for C++.
+# If it is a C program, no need to set these flags.
+# If it is a C and C++ merging program, set these flags for the C++ parts.
+CXXFLAGS_ALL :=
+CXXFLAGS_ALL +=$(CXXFLAGS)
+ 
+# The library and the link options ( C and C++ common).
+OFLAGS_ALL   :=
+OFLAGS_ALL   +=$(OFLAGS)
+ 
+# The EXT-OBJS that include to the target.
+EXOBJS_ALL   :=
+EXOBJS_ALL   +=$(EXOBJS)
+ 
+ 
+# The target file name
+ifeq ($(TYPE), exe)
+TARGET:=$(TARGETNAME).exe
+TARGET:= $(TARGET_EXE_PATH)/$(TARGET)
+TARGET_PATH_R:=$(TARGET_EXE_PATH)
+endif
+ 
+ifeq ($(TYPE), staticlib)
+TARGET:= lib$(TARGETNAME).a
+TARGET:= $(TARGET_LIB_PATH)/$(TARGET)
+TARGET_PATH_R:=$(TARGET_LIB_PATH)
+endif
+ 
+ifeq ($(TYPE), dynamiclib)
+    ifeq ($(VERSION),)
+        TARGET:= lib$(TARGETNAME).so
+    else
+        TARGET:= lib$(TARGETNAME).so.$(VERSION)
+    endif
+TARGET:= $(TARGET_LIB_PATH)/$(TARGET)
+TARGET_PATH_R:=$(TARGET_LIB_PATH)
+OFLAGS_ALL += -shared -fPIC
+endif
+
+OBJGET_PATH:= $(OBJ_PATH)/$(TARGETNAME)
+ 
+# Modify for different paltform.
+## linux
+ifeq ($(PLATFORM), LINUX)
+CCXXFLAGS_ALL += # -DLINUX
+endif
+## mac os
+#ifeq ($(PLATFORM), MACOS)
+#CCXXFLAGS_ALL += -DMACOS
+#RM= rm
+#endif
+## ios
+#ifeq ($(PLATFORM), IOS)
+#CCXXFLAGS_ALL += -DIOS
+#RM= rm
+#endif
+#ifeq ($(ARCH), i386)
+#DEVROOT=/Developer/Platforms/iPhoneSimulator.platform/Developer
+#SDKROOT=$(DEVROOT)/SDKs/iPhoneSimulator$(IOSSDK_V).sdk
+#else
+#DEVROOT=/Developer/Platforms/iPhoneOS.platform/Developer
+#SDKROOT=$(DEVROOT)/SDKs/iPhoneOS$(IOSSDK_V).sdk
+#endif
+CC=$(DEVROOT)/usr/bin/gcc # -arch$(ARCH)
+CXX=$(DEVROOT)/usr/bin/g++ # -arch$(ARCH)
+#CCXXFLAGS_ALL+= -isysroot $(SDKROOT)
+#OFLAGS_ALL  += -isysroot$(SDKROOT)
+ 
+# Stable Section: usually don't need to be changed. But you can add more.
+#=============================================================================
+SHELL   = /bin/sh
+ 
+SOURCES1=$(foreach d, $(TOTALSRCDIR),$(wildcard $(addprefix $(d)*,$(SRCEXTS))))
+SOURCES =$(filter-out $(EXCLUDESRCS), $(SOURCES1))
+OBJS    =$(foreach x,$(SRCEXTS), $(patsubst %$(x),%.o,$(filter %$(x),$(SOURCES))))
+OBJSOUT =$(foreach x,$(OBJS), $(OBJGET_PATH)/$(x))
+DEPS    =$(patsubst %.o,%.d,$(OBJS))
+DEPSOUT =$(patsubst %.o,%.d,$(OBJSOUT))
+TARGET_INCLUDE_OUT_PATH = $(TARGET_INCLUDE_PATH)/$(TARGETNAME)
+
+ABSOBJOUT=$(OBJGET_PATH)/$(SRCDIR)
+ABSSRCDIR=$(shell pwd)/$(SRCDIR)
+
+
+.PHONY: SUPPORTCMDS
+
+ifndef USEMYSELFALL
+all:$(TARGET) 
+
+objs:$(OBJSOUT)
+ 
+$(ABSOBJOUT)%.o: $(ABSSRCDIR)%.c
+	@-mkdir -p $(OBJGET_PATH)/$(SRCDIR)
+	$(CC) -c $(INCLUDES_ALL) $(CCXXFLAGS_ALL) $(CFLAGS_ALL) $< $(OUTFLAGS)  $@
+ 
+%.o: %.C
+	@-mkdir -p $(OBJGET_PATH)/$(SRCDIR)
+	$(CXX) -c $(INCLUDES_ALL) $(CCXXFLAGS_ALL) $(CXXFLAGS_ALL) $< $(OUTFLAGS)  $@
+ 
+$(ABSOBJOUT)%.o: $(ABSSRCDIR)%.cc
+	@-mkdir -p $(OBJGET_PATH)/$(SRCDIR)
+	$(CXX) -c $(INCLUDES_ALL) $(CCXXFLAGS_ALL) $(CXXFLAGS_ALL) $< $(OUTFLAGS)  $@
+ 
+$(ABSOBJOUT)%.o: $(ABSSRCDIR)%.cpp
+	@-mkdir -p $(OBJGET_PATH)/$(SRCDIR)
+	for i in ${TOTALSRCDIR}/* ; do   \
+		mkdir -p $(OBJGET_PATH)/$$i/;\
+    done
+	$(CXX) -c $(INCLUDES_ALL) $(CCXXFLAGS_ALL) $(CXXFLAGS_ALL) $< $(OUTFLAGS)  $@
+
+$(ABSOBJOUT)%.o: $(ABSSRCDIR)%.CPP
+	@-mkdir -p $(OBJGET_PATH)/$(SRCDIR)
+	$(CXX) -c $(INCLUDES_ALL) $(CCXXFLAGS_ALL) $(CXXFLAGS_ALL) $< $(OUTFLAGS)  $@
+ 
+$(ABSOBJOUT)%.o: $(ABSSRCDIR)%.c++
+	@-mkdir -p $(OBJGET_PATH)/$(SRCDIR)
+	$(CXX) -c $(INCLUDES_ALL) $(CCXXFLAGS_ALL) $(CXXFLAGS_ALL) $< $(OUTFLAGS)  $@
+ 
+$(ABSOBJOUT)%.o: $(ABSSRCDIR)%.cp
+	@-mkdir -p $(OBJGET_PATH)/$(SRCDIR)
+	$(CXX) -c $(INCLUDES_ALL) $(CCXXFLAGS_ALL) $(CXXFLAGS_ALL) $< $(OUTFLAGS)  $@
+ 
+$(ABSOBJOUT)%.o: $(ABSSRCDIR)%.cxx
+	@-mkdir -p $(OBJGET_PATH)/$(SRCDIR)
+	$(CXX) -c $(INCLUDES_ALL) $(CCXXFLAGS_ALL) $(CXXFLAGS_ALL) $< $(OUTFLAGS)  $@
+
+# Rules for producing the executable.
+#----------------------------------------------
+$(TARGET):$(OBJSOUT)
+	@echo $(TARGET_PATH_R)
+	-mkdir -p $(TARGET_PATH_R)
+ifeq ($(TYPE), staticlib)
+	for a in $(EXOBJS_ALL); do \
+		$(AR) -x $$a; \
+    done;
+	ls *.o | xargs $(AR) $(ARFLAGS) $(TARGET)
+else
+ifeq ($(strip $(SRCEXTS)), .c)  # C file
+	$(CC) $(OUTFLAGS)  $(TARGET)  $(OBJSOUT) $(EXOBJS_ALL) $(OFLAGS_ALL) $(LIB_DIR_ALL)
+else                           # C++ file
+	$(CXX) $(OUTFLAGS)  $(TARGET)  $(OBJSOUT) $(EXOBJS_ALL) $(OFLAGS_ALL) $(LIB_DIR_ALL)
+	
+endif  
+endif
+
+ifeq ($(TYPE), dynamiclib)
+ifdef VERSION
+	-ln -snf $(TARGET_PATH_R)/lib$(TARGETNAME).so.$(VERSION) $(TARGET_PATH_R)/lib$(TARGETNAME).so
+endif
+endif
+
+ifneq ($(TYPE), exe)
+	@echo $(TARGET_INCLUDE_OUT_PATH)
+	-mkdir -p $(TARGET_INCLUDE_OUT_PATH)
+
+	for i in ${SRCDIR}/* ; do   \
+       if [ -d $$i ]; then   \
+        echo `basename $$i`; \
+		currPath=`basename $$i`;\
+		fullPath="$(TARGET_INCLUDE_OUT_PATH)/$$currPath/";\
+		#echo $$fullPath;\
+		mkdir -p $$fullPath;\
+    	fi ;  \
+    done
+	
+ifneq ($(wildcard $(SRCDIR)*.h),)
+	-cp -p $(SRCDIR)*.h $(TARGET_INCLUDE_OUT_PATH)
+
+	for dir in ${SRCDIR}/* ; do   \
+       if [ -d $$dir ]; then   \
+	   	currPath=`basename $$dir`;\
+		fullPath="$(TARGET_INCLUDE_OUT_PATH)/$$currPath/";\
+	   	cp -p $$dir/*.h $$fullPath;\
+	   fi ;  \
+    done
+endif
+ifneq ($(wildcard $(SRCDIR)*.hpp),)
+	-cp -p $(SRCDIR)*.hpp $(TARGET_INCLUDE_OUT_PATH)
+	for dir in ${SRCDIR}/* ; do   \
+       if [ -d $$dir ]; then   \
+	   	currPath=`basename $$dir`;\
+		fullPath="$(TARGET_INCLUDE_OUT_PATH)/$$currPath/";\
+	   	cp -p $$dir/*.hpp $$fullPath;\
+	   fi ;  \
+    done
+endif
+endif 
+
+endif
+
+ifneq ($(MAKECMDGOALS), clean)
+    -include $(DEPSOUT)
+endif
+
+rebuild: clean all
+ 
+clean:
+	-$(RM)  $(DEPSOUT) $(OBJSOUT)
+	-$(RM)  -r $(TARGET_INCLUDE_OUT_PATH)/*
+	-$(RM)  $(TARGET)
+ 
+cleanall: clean
+	-@$(RM) $(TARGET)
+	-@$(RM) "__.SYMDEF" "__.SYMDEF SORTED"
+	-@$(RM) *.so *.a
+	-@$(RM) -r $(TARGET_PATH)

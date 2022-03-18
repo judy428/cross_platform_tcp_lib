@@ -1,0 +1,39 @@
+#########################################
+#
+# make file
+#########################################
+
+include $(CROSS_PLATFORM_LIB_DIR)/Make.include
+
+# exe, staticlib, dynamiclib
+TYPE:= dynamiclib
+
+#output name
+TARGETNAME:= threadpool
+
+# include dir
+INCLUDES= 
+
+# depends lib src
+LIBDIRS= -lrt
+
+#src dir
+SRCDIR:= ./src/
+
+#version file
+include $(SRCDIR)/version
+ 
+TOTALSRCDIR:= ./src/
+
+
+#CCXXFLAGS= -DDEBUG -g
+ 
+#OFLAGS= -L$(TARGET_PATH_R)
+GLOBAL_CCXXFLAGS += -std=c++11 
+CCXXFLAGS = -fPIC
+#CFLAGS =
+#EXOBJS =
+#EXCLUDESRCS =
+ 
+ 
+include $(CROSS_PLATFORM_LIB_DIR)/Make.share
