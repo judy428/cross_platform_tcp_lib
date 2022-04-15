@@ -8,6 +8,7 @@ SUBDIRS1:= \
 	./3rd \
 	./base	\
 	./tcp_base_on_asio	\
+	./tcp_base_on_asio/test	\
 	./thread_pool	\
 	
 	
