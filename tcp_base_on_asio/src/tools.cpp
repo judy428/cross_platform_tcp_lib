@@ -35,7 +35,7 @@ int bind_cpu(uint64_t thread_id,int cpu_id)
 {
 	// TRACE_INFO("base","thread_id:%ld,cpu_id:%d",thread_id,cpu_id);
 #ifdef _MSC_VER
-	return SetThreadAffinityMask(thread_id,1 << cpu_id) != 0 ? 0:-1;
+	return SetThreadAffinityMask(&thread_id,1 << cpu_id) != 0 ? 0:-1;
 #else
 	cpu_set_t cpu_set;
     CPU_ZERO(&cpu_set);

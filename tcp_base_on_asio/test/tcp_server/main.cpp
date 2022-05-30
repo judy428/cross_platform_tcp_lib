@@ -1,5 +1,8 @@
 
- 
+ #ifdef _MSC_VER
+#define COMMON_EXPORT
+#else
+#endif
 #include <thread>
 #include <chrono>
 #include <iomanip> 
@@ -92,7 +95,7 @@ int main(){
      delete[] ptr;
     
     cout<<"1111111111"<<endl;
-    sleep(100);
+    std::this_thread::sleep_for(std::chrono::seconds(10));
 	(*m_tcp_server_).stop();
     
     cout<<"finished"<<endl;

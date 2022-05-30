@@ -1,4 +1,7 @@
-
+#ifdef _MSC_VER
+#define COMMON_EXPORT
+#else
+#endif
 #include "message_center.h"
 #include "../tcp_struct.h"
 #include "../structInfo.h"

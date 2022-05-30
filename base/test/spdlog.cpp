@@ -19,7 +19,7 @@ int main()
 		SLOG_ERROR(ss,2,"this is error log record, param: {},very much:[{}]",std::to_string(++param)," hello,world");
 		//SLOG_ERROR("test",errid,"this is error log record, param: {},very much:[{}]",std::to_string(++param)," hello,world");
 		SLOG_INFO(ss,"xxx");
-		sleep(1);
+		std::this_thread::sleep_for(std::chrono::seconds(1));
 	}
 	 clock_t end  = clock();
     double programTimes = ((double) end -start) / CLOCKS_PER_SEC;

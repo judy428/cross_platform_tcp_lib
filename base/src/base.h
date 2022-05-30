@@ -304,11 +304,11 @@ const char* const BASE_TAG = "base";
 #ifdef _WIN32
 	#define OS32
 	typedef offset32 offset;
-	typedef size32 size_t;
+	// typedef size32 size_t;
 #else
 	#define OS64
 	typedef offset64 offset;
-	typedef size64 size_t;
+	// typedef size64 size_t;
 #endif
 
 static const int8 kMinInt8 = -128;

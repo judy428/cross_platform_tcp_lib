@@ -159,7 +159,7 @@ namespace tcpAsio
         package_head ph;
         ph.size = len;
         ph.type = otherpackage;
-        deliver(ph,buf);
+        return deliver(ph,buf);
     }
 
     void session::stop(string msg)

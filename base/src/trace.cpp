@@ -20,6 +20,12 @@ base     2016.1.13   1.0     Create
 #include <sys/time.h>
 #include <errno.h>
 #endif
+
+#ifdef _MSC_VER
+#define COMMON_EXPORT
+#else
+#endif
+
 #include "thread.h"
 #include "trace.h"
 

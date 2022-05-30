@@ -6,7 +6,6 @@
 #include <chrono>
 #include <iostream>
 #include "../../../base/src/message_base.h"
-#include "../../../base/src/lockfree_queue/lockFreeQueue.h"
 #include "../../../base/src/thread.h"
 #include "../../../base/src/mqueue.h"
 #include "../../src/tcp_server/notify.h"

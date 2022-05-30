@@ -1,3 +1,7 @@
+#ifdef _MSC_VER
+#define COMMON_EXPORT
+#else
+#endif
 #include "../../src/tcp_client/client.h"
 #include "../../../base/src/trace.h"
 #include "../../../base/src/message_base.h"
@@ -7,7 +11,7 @@
 using namespace tcpAsio;
 using namespace base;
 atomic<int> m_num;
-uint32 conn_num = 400;
+const uint32 conn_num = 40;
 uint32 msg_num = 20000;
 class tnotify
 :public tCliNotify{
@@ -73,7 +77,7 @@ public:
         break;
 
         default:
-            TRACE_SYSTEM("test","收到未定义消息");
+            TRACE_SYSTEM("test","收到未定义消息 ");
         break;
         }
         return ;
@@ -93,7 +97,7 @@ void wp(client* ct)
     int msg_len = sizeof(m_header) +  sizeof(login);
         
     int total_len = sizeof(m_header) + sizeof(login) + 1;
-    char buf[total_len];
+    char* buf = new char[total_len];
     memcpy(buf ,&m_header,sizeof(m_header));
     memcpy(buf + sizeof(m_header),&login,sizeof(login));
     
@@ -123,7 +127,7 @@ int test()
     th.join();
     //wp(ct.get());
     TRACE_ERROR("client_test",3,"****************************end");
-    sleep(80);
+    std::this_thread::sleep_for(std::chrono::seconds(80));
     cout<<"m_num:"<<m_num<<endl;
     return 0;
 }

@@ -1,7 +1,6 @@
 #include <functional>
 #include <algorithm>
 #include <thread>
-#include <boost/thread.hpp>
 #include "server.h"
 #include "../tools.h"
 
@@ -11,9 +10,13 @@ namespace tcpAsio
     tcpServer::tcpServer(const ip::tcp::endpoint& endpoint,tNotify* tn,size_t handleNum):m_acceptor(m_accept_service,endpoint),
         m_base_sessionid(10),m_TNotify(tn),m_handle_num(handleNum)
     {
-        if(m_handle_num < boost::thread::hardware_concurrency() ){
-            m_handle_num = boost::thread::hardware_concurrency() * 3;
+        // if(m_handle_num < boost::thread::hardware_concurrency() ){
+        //     m_handle_num = boost::thread::hardware_concurrency() * 3;
+        // }
+        if(m_handle_num < std::thread::hardware_concurrency() ){
+            m_handle_num = std::thread::hardware_concurrency() * 3;
         }
+		
 
         int cpuN = std::thread::hardware_concurrency() ;
         int currCpu = 0;
