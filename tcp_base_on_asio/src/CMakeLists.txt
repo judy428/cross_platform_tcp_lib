@@ -21,3 +21,20 @@ include_directories(${INCLUDE_OUTPUT_PATH})
 add_library(tcpAsio ${src_current} ${src_client} ${src_common} ${src_server})
 
 target_include_directories(tcpAsio INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
+
+#install head-file
+
+# install(DIRECTORY ./ ./tcp_client ./tcp_common ./tcp_server
+# DESTINATION ${INCLUDE_OUTPUT_PATH}/tcpp_base_on_asio/
+# FILES_MATCHING 
+# PATTERN "*.h"
+# PATTERN "build" EXCLUDE
+# )
+set(INSTALL_HEAD_FILE ./ ./tcp_client ./tcp_common ./tcp_server)
+
+install(DIRECTORY ${INSTALL_HEAD_FILE}
+DESTINATION ${INCLUDE_OUTPUT_PATH}/tcpp_base_on_asio/
+FILES_MATCHING 
+PATTERN "*.h"
+PATTERN "build" EXCLUDE
+)

@@ -1,0 +1,5 @@
+﻿  Building Custom Rule E:/code/c++/test/2/cross_platform_lib_windows/base/test/CMakeLists.txt
+  spdlog2.cpp
+E:\code\c++\test\2\cross_platform_lib_windows\base\test\../src/my_spdlog.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+E:\code\c++\test\2\cross_platform_lib_windows\base\test\../src/my_spdlog2.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  spdlog2.vcxproj -> E:\code\c++\test\2\cross_platform_lib_windows\out\test\Debug\spdlog2.exe

@@ -1,0 +1,29 @@
+﻿  Building Custom Rule E:/code/c++/test/2/cross_platform_lib_windows/tcp_base_on_asio/test/tcp_server/CMakeLists.txt
+  main.cpp
+E:\code\c++\test\2\cross_platform_lib_windows\tcp_base_on_asio\test\tcp_server\../../src/tcp_server/server.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+E:\code\c++\test\2\cross_platform_lib_windows\tcp_base_on_asio\src\tcp_server\notify.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+E:\code\c++\test\2\cross_platform_lib_windows\tcp_base_on_asio\src\tcp_common\tcp_error.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+E:\code\c++\test\2\cross_platform_lib_windows\tcp_base_on_asio\test\tcp_server\main.cpp(60,30): warning C4477: “sprintf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“int64_t”
+E:\code\c++\test\2\cross_platform_lib_windows\tcp_base_on_asio\test\tcp_server\main.cpp(60,30): message : 请考虑在格式字符串中使用“%lld”
+E:\code\c++\test\2\cross_platform_lib_windows\tcp_base_on_asio\test\tcp_server\main.cpp(60,30): message : 请考虑在格式字符串中使用“%Id”
+E:\code\c++\test\2\cross_platform_lib_windows\tcp_base_on_asio\test\tcp_server\main.cpp(60,30): message : 请考虑在格式字符串中使用“%I64d”
+  message_center.cpp
+E:\code\c++\test\2\cross_platform_lib_windows\tcp_base_on_asio\test\tcp_server\../../src/tcp_server/notify.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  正在生成代码...
+    正在创建库 E:/code/c++/test/2/cross_platform_lib_windows/build/tcp_base_on_asio/test/tcp_server/Debug/testServer.lib 和对象 E:/code/c++/test/2/cross_platform_lib_windows/build/tcp_base_on_asio/test/tcp_server/Debug/testServer.exp
+LINK : warning LNK4286: 符号“?parseFileName@base@@YAPEBDPEBD@Z (char const * __cdecl base::parseFileName(char const *))”(在“base.lib(trace.obj)”中定义)已由“tcpAsio.lib(send_cell.obj)”导入
+LINK : warning LNK4217: 符号“?parseFileName@base@@YAPEBDPEBD@Z (char const * __cdecl base::parseFileName(char const *))”(在“ base.lib(trace.obj)”中定义)已由“base.lib(thread.obj)”(函数“"public: virtual void __cdecl base::process_thread::start(void)" (?start@process_thread@base@@UEAAXXZ)”中)导入
+LINK : warning LNK4286: 符号“?parseFileName@base@@YAPEBDPEBD@Z (char const * __cdecl base::parseFileName(char const *))”(在“base.lib(trace.obj)”中定义)已由“tcpAsio.lib(server.obj)”导入
+LINK : warning LNK4286: 符号“?parseFileName@base@@YAPEBDPEBD@Z (char const * __cdecl base::parseFileName(char const *))”(在“base.lib(trace.obj)”中定义)已由“tcpAsio.lib(manager_server.obj)”导入
+LINK : warning LNK4286: 符号“?parseFileName@base@@YAPEBDPEBD@Z (char const * __cdecl base::parseFileName(char const *))”(在“base.lib(trace.obj)”中定义)已由“tcpAsio.lib(session.obj)”导入
+LINK : warning LNK4286: 符号“?add@trace@base@@SAXW4TRACE_LEVEL@2@PEBDH1ZZ (public: static void __cdecl base::trace::add(enum base::TRACE_LEVEL,char const *,int,char const *,...))”(在“base.lib(trace.obj)”中定义)已由“tcpAsio.lib(send_cell.obj)”导入
+LINK : warning LNK4217: 符号“?add@trace@base@@SAXW4TRACE_LEVEL@2@PEBDH1ZZ (public: static void __cdecl base::trace::add(enum base::TRACE_LEVEL,char const *,int,char const *,...))”(在“ base.lib(trace.obj)”中定义)已由“base.lib(thread.obj)”(函数“"public: virtual void __cdecl base::process_thread::start(void)" (?start@process_thread@base@@UEAAXXZ)”中)导入
+LINK : warning LNK4286: 符号“?add@trace@base@@SAXW4TRACE_LEVEL@2@PEBDH1ZZ (public: static void __cdecl base::trace::add(enum base::TRACE_LEVEL,char const *,int,char const *,...))”(在“base.lib(trace.obj)”中定义)已由“tcpAsio.lib(server.obj)”导入
+LINK : warning LNK4286: 符号“?add@trace@base@@SAXW4TRACE_LEVEL@2@PEBDH1ZZ (public: static void __cdecl base::trace::add(enum base::TRACE_LEVEL,char const *,int,char const *,...))”(在“base.lib(trace.obj)”中定义)已由“tcpAsio.lib(manager_server.obj)”导入
+LINK : warning LNK4217: 符号“?add@trace@base@@SAXW4TRACE_LEVEL@2@PEBDH1ZZ (public: static void __cdecl base::trace::add(enum base::TRACE_LEVEL,char const *,int,char const *,...))”(在“ base.lib(trace.obj)”中定义)已由“tcpAsio.lib(session.obj)”(函数“"private: void __cdecl tcpAsio::session::handle_read(class boost::system::error_code const &,unsigned __int64)" (?handle_read@session@tcpAsio@@AEAAXAEBVerror_code@system@boost@@_K@Z)”中)导入
+LINK : warning LNK4217: 符号“??_7process_thread@base@@6B@ (const base::process_thread::`vftable')”(在“ main.obj”中定义)已由“base.lib(thread.obj)”(函数“"public: __cdecl base::process_thread::process_thread(void)" (??0process_thread@base@@QEAA@XZ)”中)导入
+  testServer.vcxproj -> E:\code\c++\test\2\cross_platform_lib_windows\out\test\Debug\testServer.exe

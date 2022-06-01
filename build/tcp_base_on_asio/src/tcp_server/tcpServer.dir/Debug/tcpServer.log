@@ -1,0 +1,42 @@
+﻿  Building Custom Rule E:/code/c++/test/2/cross_platform_lib_windows/tcp_base_on_asio/src/tcp_server/CMakeLists.txt
+  manager_server.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+E:\code\c++\test\2\cross_platform_lib_windows\tcp_base_on_asio\src\tcp_server\notify.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+E:\code\c++\test\2\cross_platform_lib_windows\tcp_base_on_asio\src\tcp_common\tcp_error.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  server.cpp
+E:\code\c++\test\2\cross_platform_lib_windows\tcp_base_on_asio\src\tcp_server\server.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+E:\code\c++\test\2\cross_platform_lib_windows\tcp_base_on_asio\src\tcp_server\notify.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+E:\code\c++\test\2\cross_platform_lib_windows\tcp_base_on_asio\src\tcp_common\tcp_error.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.29.30133\include\xutility(158,1): warning C4267: “参数”: 从“size_t”转换到“int32_t”，可能丢失数据
+d:\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.29.30133\include\memory(2029): message : 查看对正在编译的函数 模板 实例化“void std::_Construct_in_place<_Ty,tcpAsio::tNotify*&,size_t&,int>(_Ty &,tcpAsio::tNotify *&,size_t &,int &&) noexcept(false)”的引用
+          with
+          [
+              _Ty=tcpAsio::managerServer
+          ]
+d:\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : 查看对正在编译的函数 模板 实例化“std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<tcpAsio::tNotify*&,size_t&,int>(tcpAsio::tNotify *&,size_t &,int &&)”的引用
+          with
+          [
+              _Ty=tcpAsio::managerServer
+          ]
+d:\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : 查看对正在编译的函数 模板 实例化“std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<tcpAsio::tNotify*&,size_t&,int>(tcpAsio::tNotify *&,size_t &,int &&)”的引用
+          with
+          [
+              _Ty=tcpAsio::managerServer
+          ]
+E:\code\c++\test\2\cross_platform_lib_windows\tcp_base_on_asio\src\tcp_server\server.cpp(27): message : 查看对正在编译的函数 模板 实例化“std::shared_ptr<tcpAsio::managerServer> std::make_shared<tcpAsio::managerServer,tcpAsio::tNotify*&,size_t&,int>(tcpAsio::tNotify *&,size_t &,int &&)”的引用
+  session.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+E:\code\c++\test\2\cross_platform_lib_windows\tcp_base_on_asio\src\tcp_server\notify.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+E:\code\c++\test\2\cross_platform_lib_windows\tcp_base_on_asio\src\tcp_common\tcp_error.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  正在生成代码...
+  tcpServer.vcxproj -> E:\code\c++\test\2\cross_platform_lib_windows\out\lib\Debug\tServer.lib

@@ -23,3 +23,10 @@ target_include_directories(base INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
 
 
 
+
+install(DIRECTORY ./
+DESTINATION ${INCLUDE_OUTPUT_PATH}/base/
+FILES_MATCHING 
+PATTERN "*.h"
+PATTERN "build" EXCLUDE
+)

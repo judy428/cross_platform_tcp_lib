@@ -1,5 +1,8 @@
-release: make VER=release
-debug: make
-clean:make clean
-cleanall: make cleanall
-本系统依赖于boost.asio，使用者需要提前编译好boost库，并将头文件与库文件其放入到./3rd/boost_1_77_0/下
+说明：
+	本系统依赖于boost.asio，可以运行于linux下与windows下，使用cmake，经安装cmake 3.23.1以上版本。
+使用步骤：
+	进入目录后：
+	1:	cd build/
+	2:	cmake ..
+	3:	cmake --build .
+	4:	cmake --install .

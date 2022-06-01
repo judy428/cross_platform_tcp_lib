@@ -1,0 +1,46 @@
+﻿  Building Custom Rule E:/code/c++/test/2/cross_platform_lib_windows/base/src/CMakeLists.txt
+  pugixml.cpp
+  thread.cpp
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(24,2): warning C4273: “base::thread::thread”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(41,2): message : 参见“{ctor}”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(29,1): warning C4273: “base::thread::~thread”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(42,3): message : 参见“{dtor}”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(34,1): warning C4273: “base::thread::create”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(45,7): message : 参见“create”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(43,1): warning C4273: “base::thread::join”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(46,7): message : 参见“join”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(60,1): warning C4273: “base::thread::set_priority”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(47,7): message : 参见“set_priority”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(69,1): warning C4273: “base::thread::detach”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(48,7): message : 参见“detach”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(81,1): warning C4273: “base::thread::sleep”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(51,14): message : 参见“sleep”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(94,1): warning C4273: “base::thread::curr_thread_id”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(52,14): message : 参见“curr_thread_id”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(103,1): warning C4273: “base::thread::number_of_processors”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(53,13): message : 参见“number_of_processors”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(117,2): warning C4273: “base::process_thread::process_thread”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(66,2): message : 参见“{ctor}”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(124,1): warning C4273: “base::process_thread::~process_thread”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(67,11): message : 参见“{dtor}”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(129,1): warning C4273: “base::process_thread::run”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(70,15): message : 参见“run”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(134,1): warning C4273: “base::process_thread::start”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(72,15): message : 参见“start”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(152,1): warning C4273: “base::process_thread::stop”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(73,15): message : 参见“stop”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(171,1): warning C4273: “base::process_thread::set_priority”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(75,7): message : 参见“set_priority”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(180,1): warning C4273: “base::process_thread::wait”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(77,7): message : 参见“wait”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(185,1): warning C4273: “base::process_thread::release”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(78,7): message : 参见“release”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(190,1): warning C4273: “base::process_thread::is_running”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(80,7): message : 参见“is_running”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(195,1): warning C4273: “base::process_thread::set_running”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(81,7): message : 参见“set_running”的前一个定义
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.cpp(200,1): warning C4273: “base::process_thread::sleep”: dll 链接不一致
+E:\code\c++\test\2\cross_platform_lib_windows\base\src\thread.h(84,14): message : 参见“sleep”的前一个定义
+  trace.cpp
+  正在生成代码...
+  base.vcxproj -> E:\code\c++\test\2\cross_platform_lib_windows\out\lib\Debug\base.lib
